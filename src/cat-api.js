@@ -8,6 +8,7 @@ const catInfo = document.querySelector(".cat-info");
 
 const API_KEY = 'live_D6jugGRROa5bEjJ3vZpDj7nDnffFN10aPT1airKpBbRgLxdpe782AZmmNQJyJxew'
 const arrayId = [];
+let render = [];
 
 
 // import SlimSelect from 'slim-select'
