@@ -10,11 +10,7 @@ const API_KEY = 'live_D6jugGRROa5bEjJ3vZpDj7nDnffFN10aPT1airKpBbRgLxdpe782AZmmNQ
 const arrayId = [];
 let render = [];
 
-
-// import SlimSelect from 'slim-select'
-// const catInfo = new SlimSelect({
-//     select: '.breed-select'
-//   })
+import SlimSelect from 'slim-select'
 
 export function fetchBreeds() {
     const API_URL = `api.thecatapi.com/v1/breeds`
@@ -37,6 +33,7 @@ export function fetchBreeds() {
                 optionElement.text = arrayId[i];
                 selectBreed.add(optionElement);
             }
+            configureSlimSelect();
             // console.log(arrayId)
             // catInfo.innerHTML = JSON.stringify(render)
             loaderText.classList.add('hidden');
@@ -45,11 +42,30 @@ export function fetchBreeds() {
         })
         .catch(() => {
             loaderText.classList.add('hidden');
-            Notiflix.Notify.failure(errorText)
+            Notiflix.Notify.failure(errorText);
             // errorText.classList.remove('hidden');
         })
 }
 
+function configureSlimSelect() {
+    const breedSelect = new SlimSelect({
+        select: '.breed-select',
+        data: render.map(breed => ({ text: breed.id, value: breed.id })),
+        settings: {
+            placeholderText: 'Raza',
+            allowDeselect: true,
+        }
+    });
+    // catInfo.classList.add('hidden');// Ocultar inicialmente el catInfo
+
+    // breedSelect.onChange(() => {
+    //     if (breedSelect.selected()) {
+    //         catInfo.classList.remove('hidden'); // Mostrar el catInfo cuando hay una selección
+    //     } else {
+    //         catInfo.classList.add('hidden');// Ocultar inicialmente el catInfo
+    //     }
+    // });
+}
 
 export function fetchCatByBreed(breedId) {
     // console.log(breedId)
@@ -102,3 +118,5 @@ export function fetchCatByBreed(breedId) {
             // errorText.classList.remove('hidden');
         })
 }
+
+

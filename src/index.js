@@ -1,5 +1,5 @@
 import { fetchBreeds, fetchCatByBreed, selectBreed, errorText } from "./cat-api";
-// debugger;
+
 errorText.classList.add('hidden');
 selectBreed.classList.add('hidden')
 fetchBreeds()
