@@ -16,15 +16,12 @@ const arrayId = [];
 //   })
 
 export function fetchBreeds() {
-    const API_URL = `api.thecatapi.com/v1/breeds`
-    fetch(`https://${API_URL}?` + new URLSearchParams({
+    fetch('https://api.thecatapi.com/v1/breeds', {
         headers: {
-            'x-api-key':'api_key',
-            // 'Accept': 'application/json',
-            // 'Content-Type': 'application/json'
-        }
-
-    }))
+            'x-api-key':
+                'api_key',
+        },
+    })
         .then(response => response.json())
         .then(data => {
             render = data;
