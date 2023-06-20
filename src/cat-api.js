@@ -18,13 +18,11 @@ const arrayId = [];
 export function fetchBreeds() {
     const API_URL = `api.thecatapi.com/v1/breeds`
     fetch(`https://${API_URL}?` + new URLSearchParams({
-        method: 'GET',
         api_key: API_KEY,
-        // limit: 10,
-        // headers: {
-        //     'Accept': 'application/json',
-        //     'Content-Type': 'application/json'
-        // }
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
 
     }))
         .then(response => response.json())
@@ -59,9 +57,7 @@ export function fetchCatByBreed(breedId) {
     catInfo.classList.add('hidden');
     const API_URL = `api.thecatapi.com/v1/images/search`
     fetch(`https://${API_URL}?` + new URLSearchParams({
-        method: 'GET',
         api_key: API_KEY,
-        // limit: 10,
         breed_ids: `${breedId}`,
         headers: {
             'Accept': 'application/json',
