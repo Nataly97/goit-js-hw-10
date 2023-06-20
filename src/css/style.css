@@ -1,0 +1,26 @@
+.hidden {
+    display: none;
+}
+
+img {
+    float: right;
+    margin-right: 150px;
+    width: 30%;
+    height: auto;
+}
+
+.cat-info h1 {
+    color: darkblue
+}
+
+.cat-info p {
+    display: inline-block;
+    width: 50%;
+    text-align: justify;
+    margin-left: 15px;
+    color: slategray;
+}
+
+.cat-info b {
+    color: blue;
+}
